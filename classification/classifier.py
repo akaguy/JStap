@@ -27,7 +27,7 @@ import static_analysis
 
 
 def test_model(names, labels, attributes, model, print_res=False, print_res_verbose=True,
-               print_score=True, threshold=0.50):
+               print_score=True, threshold=0.50,return_scores=False):
     """
         Use an existing model to classify new JS inputs.
 
@@ -64,6 +64,8 @@ def test_model(names, labels, attributes, model, print_res=False, print_res_verb
         model = pickle.load(open(model, 'rb'))
 
     labels_predicted_proba_test = model.predict_proba(attributes)
+    if return_scores:
+        return labels_predicted_proba_test
     # Probability of the samples for each class in the model.
     # First column = benign, second = malicious.
     # labels_predicted_test = model.predict(attributes_test)
