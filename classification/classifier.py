@@ -116,7 +116,9 @@ def parsing_commands():
 
     return vars(parser.parse_args())
 
-arg_obj = {}
+from collections import defaultdict
+arg_obj = defaultdict([''])
+
 
 def main_classification(js_dirs=arg_obj['d'], js_files=arg_obj['f'], labels_f=arg_obj['lf'],
                         labels_d=arg_obj['l'], model=arg_obj['m'], threshold=arg_obj['th'],
