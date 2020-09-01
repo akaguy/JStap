@@ -117,10 +117,6 @@ def parsing_commands():
     return vars(parser.parse_args())
 
 
-arg_obj = parsing_commands()
-utility.control_logger(arg_obj['v'][0])
-
-
 def main_classification(js_dirs=arg_obj['d'], js_files=arg_obj['f'], labels_f=arg_obj['lf'],
                         labels_d=arg_obj['l'], model=arg_obj['m'], threshold=arg_obj['th'],
                         level=arg_obj['level'], features_choice=arg_obj['features'],
@@ -204,6 +200,8 @@ def main_classification(js_dirs=arg_obj['d'], js_files=arg_obj['f'], labels_f=ar
 
 
 if __name__ == "__main__":  # Executed only if run as a script
+    arg_obj = parsing_commands()
+    utility.control_logger(arg_obj['v'][0])
     main_classification()
 
 
